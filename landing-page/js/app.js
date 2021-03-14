@@ -19,6 +19,7 @@
  */
 //first variable gets element id
 //second variable selects all sections
+//variable selection parent id and query selector for all sections
 const navbar = document.getElementById('navbar__list');
 const section = document.querySelectorAll('section');
 
@@ -27,16 +28,18 @@ const section = document.querySelectorAll('section');
  * Start Helper Functions
  *
  */
-
+//Functional code with variable with an empty array
 const LandingPageNav = () => {
     let navList = [];
+
+    //selecting each section id and data attribute through a loop - creating a list
     section.forEach((section) => {
         const sectionId = section.getAttribute('id');
         const sectionData = section.getAttribute('data-nav');
 
         navList += `<li><a class="link" href="#${sectionId}">${sectionData}</li>`;
     });
-
+    //adding the list to the HTML
     navbar.innerHTML = navList;
 };
 
