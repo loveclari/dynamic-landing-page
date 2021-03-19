@@ -45,26 +45,24 @@ const LandingPageNav = () => {
 
 LandingPageNav();
 
-/**
- * End Helper Functions
- * Begin Main Functions
- *
- */
 
-// build the nav
+//determining the position on viewport and returning the position
 
-// Add class 'active' to section when near top of viewport
+const activeSection = (section) => {
+    let position = section.getBoundingClientRect().top;
+    return position;
+};
 
-// Scroll to anchor ID using scrollTO event
+//creating a function with a condition and a loop for each section if > or < than to add or remove a class
 
-/**
- * End Main Functions
- * Begin Events
- *
- */
+const makeActive = () => {
+    section.forEach((section) => {
+        const changeClass = activeSection(section);
+        if (changeClass < 100 && changeClass > -100) {
+            section.classList.add('your-active-class');
+        } else section.classList.remove('your-active-class');
+    });
+};
 
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
+//calling the eventlistener
+this.addEventListener('scroll', makeActive);
