@@ -52,11 +52,6 @@ const LandingPageNav = () => {
 
 //Grabbing the position from the viewport
 
-// function getTopSection(section) {
-//     const position = window.pageYOffset + section.getBoundingClientRect().top;
-//     return position;
-// }
-
 const getTopSection = (section) => {
     const position = section.getBoundingClientRect().top;
     return position;
@@ -78,6 +73,13 @@ window.addEventListener('scroll', activeSection);
 
 // Scroll to anchor ID using scrollTO event
 
+const anchorId = () => {
+    navbar.addEventListener('click', function() {
+        const elmnt = document.querySelector('a');
+        elmnt.scrollIntoView();
+    });
+};
+
 /**
  * End Main Functions
  * Begin Events
@@ -89,4 +91,7 @@ LandingPageNav();
 
 // Scroll to section on link click
 
+anchorId();
+
 // Set sections as active
+activeSection();
