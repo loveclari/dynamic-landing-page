@@ -31,66 +31,62 @@ const section = document.querySelectorAll('section');
 //Functional code with variable with an empty array
 const LandingPageNav = () => {
     //selecting each section id and data attribute through a loop - creating a list
+
     section.forEach((section) => {
         const sectionId = section.getAttribute('id');
         const sectionData = section.getAttribute('data-nav');
-
-        navList += `<li><a class="link" href="#${sectionId}">${sectionData}</li>`;
+        navbar.innerHTML += `<li><a class="link" href="#${sectionId}">${sectionData}</li>`;
     });
     //adding the list to the HTML
-    navbar.innerHTML = '';
-
-    /**
-     * End Helper Functions
-     * Begin Main Functions
-     *
-     */
-
-    // build the nav
-
-    // Add class 'active' to section when near top of viewport
-
-    //Grabbing the position from the viewport
-
-    const getActiveSection = () => {
-        let position = section.getBoundingClientRect().top;
-        return position;
-    };
-
-    //If the position in x add my classlist otherwise remove that class
-
-    const activeSection = () => {
-        sections.forEach((section) => {
-            if (section === getActiveSection()) {
-                section.classList.add('your-active-class');
-            } else section.classList.remove('your-active-class');
-        });
-        // };
-
-        //adding an event listener if activesection is at the top by scroll then the class will be true
-
-        section.addEventListener('scroll', (getActiveSection) => {
-            sections.forEach((section) => {
-                if (getAactiveSection === 10) {
-                    getActiveSection.classList.add('your-active-class');
-                }
-            });
-        });
-
-        // Scroll to anchor ID using scrollTO event
-
-        /**
-         * End Main Functions
-         * Begin Events
-         *
-         */
-
-        // Build menu
-
-        // Scroll to section on link click
-
-        // Set sections as active
-    };
 };
 
+/**
+ * End Helper Functions
+ * Begin Main Functions
+ *
+ */
+
+// build the nav
+
+// Add class 'active' to section when near top of viewport
+
+//Grabbing the position from the viewport
+
+// function getTopSection(section) {
+//     const position = window.pageYOffset + section.getBoundingClientRect().top;
+//     return position;
+// }
+
+const getTopSection = (section) => {
+    const position = section.getBoundingClientRect().top;
+    return position;
+};
+
+//If the position in x add my classlist otherwise remove that class
+
+const activeSection = () => {
+    Array.from(section).forEach(function(section) {
+        if (getTopSection(section) < 100 && getTopSection(section) >= -100) {
+            section.classList.add('your-active-class');
+        } else section.classList.remove('your-active-class');
+    });
+};
+
+//adding an event listener if activesection is at the top by scroll then the class will be true
+
+window.addEventListener('scroll', activeSection);
+
+// Scroll to anchor ID using scrollTO event
+
+/**
+ * End Main Functions
+ * Begin Events
+ *
+ */
+
+// Build menu
 LandingPageNav();
+
+// Scroll to section on link click
+
+// Set sections as active
