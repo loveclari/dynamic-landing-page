@@ -74,9 +74,12 @@ window.addEventListener('scroll', activeSection);
 // Scroll to anchor ID using scrollTO event
 
 const anchorId = () => {
-    navbar.addEventListener('click', function() {
-        const elmnt = document.querySelector('a');
-        elmnt.scrollIntoView();
+    navbar.addEventListener('click', function(event) {
+        const sectionId = navbar.getAttribute('href');
+        const scroll = document.getElementById(sectionId);
+        scroll.scrollIntoView({
+            behavior: 'smooth',
+        });
     });
 };
 
