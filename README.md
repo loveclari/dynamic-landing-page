@@ -1,6 +1,8 @@
 # dynamic-landing-page
 
-This is a simle landing page as a template with different sections to show case a portfolio
+This is a simple landing page as a template with different sections to show case a portfolio
+
+
 
 ## Dependencies
  
@@ -28,13 +30,19 @@ DOM Manipulation:
  https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll
  
  
+ 
 
 ## Important Files
 
 All the dynamic of the navigation can be found on `app.js`
 
 
+
+
 ## How to run the project.
 
 `npm i`
 `npm start`
+
+
+
