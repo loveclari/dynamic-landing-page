@@ -92,9 +92,5 @@ function addNavClickHandler(navbar) {
 // Build menu
 LandingPageNav();
 
-// Scroll to section on link click
-
-// addNavClickHandler();
-
 // Set sections as active
 activeSection();
