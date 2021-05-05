@@ -73,15 +73,15 @@ window.addEventListener('scroll', activeSection);
 
 // Scroll to anchor ID using scrollTO event
 
-const anchorId = () => {
+function addNavClickHandler(navbar) {
     navbar.addEventListener('click', function(event) {
-        const sectionId = navbar.getAttribute('href');
-        const scroll = document.getElementById(sectionId);
-        scroll.scrollIntoView({
+        event.preventDefault();
+        sectionID = navbar.getAttribute('href').slice(1);
+        document.getElementById(sectionID).scrollIntoView({
             behavior: 'smooth',
         });
     });
-};
+}
 
 /**
  * End Main Functions
@@ -92,9 +92,6 @@ const anchorId = () => {
 // Build menu
 LandingPageNav();
 
-// Scroll to section on link click
-
-anchorId();
 
 // Set sections as active
 activeSection();
