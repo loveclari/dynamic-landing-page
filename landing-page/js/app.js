@@ -79,6 +79,8 @@ function addNavClickHandler(navbar) {
         sectionID = navbar.getAttribute('href').slice(1);
         document.getElementById(sectionID).scrollIntoView({
             behavior: 'smooth',
+            block: 'end',
+            inline: 'nearest',
         });
     });
 }
