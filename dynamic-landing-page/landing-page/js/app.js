@@ -77,8 +77,11 @@ function addNavClickHandler(navbar) {
     navbar.addEventListener('click', function(event) {
         event.preventDefault();
         sectionID = navbar.getAttribute('href').slice(1);
-        document.getElementById(sectionID).scrollIntoView({
+        const elm = document.getElementById(sectionID);
+        elm.scrollIntoView({
             behavior: 'smooth',
+            block: 'end',
+            inline: 'nearest',
         });
     });
 }
