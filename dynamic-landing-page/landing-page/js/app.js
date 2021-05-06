@@ -92,6 +92,5 @@ function addNavClickHandler(navbar) {
 // Build menu
 LandingPageNav();
 
-
 // Set sections as active
 activeSection();
