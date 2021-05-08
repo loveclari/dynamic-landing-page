@@ -66,25 +66,11 @@ const activeSection = () => {
     });
 };
 
+//THIS IS THE SCROLL EVENT LISTENER//
+
 //adding an event listener if activesection is at the top by scroll then the class will be true
 
 window.addEventListener('scroll', activeSection);
-
-// Scroll to anchor ID using scrollTO event
-
-function addNavClickHandler(navlink) {
-    navlink.addEventListener('click', function(event) {
-        event.preventDefault();
-        sectionID = navlink.getAttribute('href').slice(1);
-        document.getElementById(sectionID).scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-        });
-    });
-}
-
-window.addEventListener('click', addNavClickHandler);
 
 /**
  * End Main Functions
