@@ -31,7 +31,6 @@ const section = document.querySelectorAll('section');
 //Functional code with variable with an empty array
 const LandingPageNav = () => {
     //selecting each section id and data attribute through a loop - creating a list
-
     section.forEach((section) => {
         const sectionId = section.getAttribute('id');
         const sectionData = section.getAttribute('data-nav');
@@ -73,18 +72,19 @@ window.addEventListener('scroll', activeSection);
 
 // Scroll to anchor ID using scrollTO event
 
-function addNavClickHandler(navbar) {
-    navbar.addEventListener('click', function(event) {
+function addNavClickHandler(navlink) {
+    navlink.addEventListener('click', function(event) {
         event.preventDefault();
-        sectionID = navbar.getAttribute('href').slice(1);
-        const elm = document.getElementById(sectionID);
-        elm.scrollIntoView({
+        sectionID = navlink.getAttribute('href').slice(1);
+        document.getElementById(sectionID).scrollIntoView({
             behavior: 'smooth',
             block: 'end',
             inline: 'nearest',
         });
     });
 }
+
+window.addEventListener('click', addNavClickHandler);
 
 /**
  * End Main Functions
@@ -94,6 +94,8 @@ function addNavClickHandler(navbar) {
 
 // Build menu
 LandingPageNav();
+
+// addNavClickHandler();
 
 // Set sections as active
 activeSection();
