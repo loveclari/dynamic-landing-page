@@ -95,7 +95,5 @@ window.addEventListener('click', addNavClickHandler);
 // Build menu
 LandingPageNav();
 
-// addNavClickHandler();
-
 // Set sections as active
 activeSection();
