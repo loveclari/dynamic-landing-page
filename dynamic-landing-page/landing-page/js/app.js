@@ -36,7 +36,14 @@ const LandingPageNav = () => {
         const sectionData = section.getAttribute('data-nav');
         navbar.innerHTML += `<li><a class="link" href="#${sectionId}">${sectionData}</li>`;
     });
-    //adding the list to the HTML
+    //adding click w scroll
+    let sections = document.querySelectorAll('section');
+    for (let section of sections) {
+        document.addEventListener('click', (e) => {
+            e.preventDefault();
+            section.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        });
+    }
 };
 
 /**
