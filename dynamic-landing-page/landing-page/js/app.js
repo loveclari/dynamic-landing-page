@@ -42,8 +42,7 @@ const LandingPageNav = () => {
             e.preventDefault();
             const id = this.getAttribute('id');
             const offsetTop = document.querySelector(id).top;
-            // section.scrollIntoView({ behavior: 'smooth' });
-            scroll({
+            scrollIntoView({
                 top: offsetTop,
                 behavior: 'smooth',
                 inline: 'nearest',
