@@ -35,15 +35,22 @@ const LandingPageNav = () => {
         const sectionId = section.getAttribute('id');
         const sectionData = section.getAttribute('data-nav');
         navbar.innerHTML += `<li><a class="link" href="#${sectionId}">${sectionData}</li>`;
-    });
-    //adding click w scroll
-    let sections = document.querySelectorAll('section');
-    for (let section of sections) {
-        document.addEventListener('click', (e) => {
+
+        //adding click with scroll
+
+        section.addEventListener('click', (e) => {
             e.preventDefault();
-            section.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+            const id = this.getAttribute('id');
+            const offsetTop = document.querySelector(id).top;
+            // section.scrollIntoView({ behavior: 'smooth' });
+            scroll({
+                top: offsetTop,
+                behavior: 'smooth',
+                inline: 'nearest',
+                block: 'start',
+            });
         });
-    }
+    });
 };
 
 /**
