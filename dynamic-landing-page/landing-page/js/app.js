@@ -30,26 +30,27 @@ const section = document.querySelectorAll('section');
  */
 //Functional code with variable with an empty array
 const LandingPageNav = () => {
-    //selecting each section id and data attribute through a loop - creating a list
     section.forEach((section) => {
         const sectionId = section.getAttribute('id');
         const sectionData = section.getAttribute('data-nav');
-        navbar.innerHTML += `<li><a class="link" href="#${sectionId}">${sectionData}</li>`;
+        navbar.innerHTML += `<li><a class="link" href="#${sectionId}" data-link=${sectionId}">${sectionData}</li>`;
+    });
 
-        //adding click with scroll
+    const sections = document.querySelectorAll('.navbar__menu ul a');
 
-        section.addEventListener('click', (e) => {
+    //scrol smooth on click
+
+    for (const section of sections) {
+        section.addEventListener('click', function(e) {
             e.preventDefault();
-            const id = this.getAttribute('id');
-            const offsetTop = document.querySelector(id).top;
-            scrollIntoView({
+            const href = this.getAttribute('href');
+            const offsetTop = document.querySelector(href).offsetTop;
+            scroll({
                 top: offsetTop,
                 behavior: 'smooth',
-                inline: 'nearest',
-                block: 'start',
             });
         });
-    });
+    }
 };
 
 /**
@@ -92,7 +93,10 @@ window.addEventListener('scroll', activeSection);
  */
 
 // Build menu
+
 LandingPageNav();
 
 // Set sections as active
 activeSection();
+
+//scroll to link
